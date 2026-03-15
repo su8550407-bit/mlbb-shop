@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLBB Diamond Shop - Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pyidaungsu:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Pyidaungsu', sans-serif;
+            background-color: #020617;
+            background-image: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+                              url('https://m.media-amazon.com/images/M/MV5BYWJhMzY2ODAtNGE2Mi00YWRiLWFkNWQtMGZlNTVhYjljZGE0XkEyXkFqcGc@._V1_.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Diamond Card Styling */
+        .diamond-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .diamond-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.5);
+        }
+
+        .text-stroke {
+            color: #fff;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 4px 6px rgba(0,0,0,0.8);
+        }
+
+        /* Page 2 Lightning Border Effect */
+        .lightning-panel {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .lightning-panel::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #3b82f6, transparent, #9333ea, transparent, #3b82f6);
+            background-size: 400%;
+            z-index: -1;
+            animation: lightning-glow 10s linear infinite;
+            filter: blur(10px);
+            opacity: 0.5;
+        }
+
+        @keyframes lightning-glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .payment-banner {
+            background: linear-gradient(90deg, #1e40af, #7e22ce);
+            background-size: 200% auto;
+            animation: gradient-move 3s ease infinite;
+        }
+
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .strike-red {
+            text-decoration: line-through;
+            text-decoration-color: #ef4444;
+        }
+    </style>
+</head>
+<body class="pb-10">
+
+    <header class="bg-black/40 backdrop-blur-lg p-4 sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="location.reload()">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center border-2 border-white/20 overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFzmpZ4tZxqtslXgmVaGHrbEIUgyWNZNj4PA&s" alt="Logo">
+                </div>
+                <h1 class="text-2xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 uppercase tracking-tighter">MLBB Official Centre</h1>
+            </div>
+            <div class="marquee-container bg-blue-900/30 py-2 rounded-full border border-blue-500/20 flex-1 max-w-xl mx-4 hidden md:block">
+                <div class="marquee-content text-sm font-bold text-blue-200 uppercase italic">
+                    💎 ယုံကြည်စိတ်ချရပြီး ဈေးနှုန်းလည်းသက်သာတဲ့ MLBB Diamond Shop ၌ ဝယ်ယူအားပေးကြသော လူကြီးမင်းတို့တစ်ယောက်ချင်းစီတိုင်းကို ကျေးဇူးတင်ပါတယ်ခဗျာ။ 💎
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container mt-6">
+        <!-- Page 1: Shop List -->
+        <div id="page1" class="transition-all duration-500">
+            <div class="mb-8 p-6 rounded-3xl bg-gradient-to-br from-blue-900/40 to-black/40 border border-blue-500/20">
+                <h2 class="text-3xl font-black text-white italic uppercase tracking-wider">Packages</h2>
+                <p class="text-blue-400 font-bold">စိန်အရေအတွက် စိတ်ကြိုက်ရွေးချယ်ပါ</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6" id="packageGrid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- Page 2: Checkout -->
+        <div id="page2" class="hidden max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-12 duration-700">
+            <button onclick="goBack()" class="mb-6 flex items-center gap-2 text-blue-400 hover:text-white font-black uppercase transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                Back to Shop
+            </button>
+            
+            <div class="lightning-panel p-1 md:p-1">
+                <div class="bg-slate-950/90 rounded-[1.9rem] p-6 md:p-10">
+                    <div id="orderSummary" class="payment-banner p-6 rounded-2xl border border-white/20 mb-10 shadow-lg transform -skew-x-2">
+                        <p class="text-white font-black text-3xl tracking-wide skew-x-2 text-center" id="summaryText"></p>
+                    </div>
+
+                    <div class="space-y-10">
+                        <!-- User ID Section -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-3">
+                                <label class="text-xs font-black text-blue-400 uppercase tracking-[0.2em] px-1">Game User ID</label>
+                                <input type="number" id="gameId" placeholder="e.g. 12345678" class="input-glow w-full bg-slate-900/50 border-2 border-white/5 rounded-2xl p-5 text-white font-mono text-xl outline-none transition-all">
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-xs font-black text-blue-400 uppercase tracking-[0.2em] px-1">Server ID</label>
+                                <input type="number" id="serverId" placeholder="e.g. 1234" class="input-glow w-full bg-slate-900/50 border-2 border-white/5 rounded-2xl p-5 text-white font-mono text-xl outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Payment Section -->
+                        <div class="space-y-6">
+                            <h3 class="text-center text-sm font-black text-white uppercase tracking-widest bg-white/5 py-2 rounded-lg">Payment Info</h3>
+                            
+                            <div class="flex flex-col items-center gap-6">
+                                <div class="w-full max-w-md bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-6 rounded-3xl border-2 border-blue-500/30 flex items-center gap-5 shadow-inner">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0T3vUCJFlkuFj5SZ2y5wsK3UBr-wQ2vV8TA&s" class="w-16 h-16 rounded-2xl shadow-lg border border-white/20">
+                                    <div>
+                                        <p class="text-xs font-black text-blue-300 uppercase">Khun Maung Maung</p>
+                                        <p class="text-2xl font-mono font-black text-white tracking-widest">09669426108</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <input type="text" id="senderName" placeholder="လွှဲသူအမည်" class="input-glow w-full bg-slate-900/50 border-2 border-white/5 rounded-2xl p-4 text-white outline-none">
+                                </div>
+                                <div class="space-y-2">
+                                    <input type="number" id="lastFive" placeholder="Trans ID (နောက်ဆုံး ၅ လုံး)" class="input-glow w-full bg-slate-900/50 border-2 border-white/5 rounded-2xl p-4 text-white outline-none font-mono">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="submitOrder()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 py-6 rounded-2xl font-black text-2xl shadow-[0_0_25px_rgba(37,99,235,0.4)] transition-all active:scale-95 uppercase italic tracking-wider">
+                            Confirm Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] px-8 py-5 rounded-2xl bg-blue-600 text-white font-bold text-sm shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/20 opacity-0 transition-all duration-300 pointer-events-none transform translate-y-10 text-center max-w-[90vw] md:max-w-md"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'mlbb-shop-storm';
+
+        const packages = [
+            { id: 1, dia: 88, price: 3000, hot: false, type: 'dia' },
+            { id: 2, dia: 150, price: 5000, hot: false, type: 'dia' },
+            { id: 3, dia: 300, price: 10000, hot: false, type: 'dia' },
+            { id: 4, dia: 900, price: 30000, hot: false, type: 'dia' },
+            { id: 5, dia: 1500, price: 50000, hot: false, type: 'dia' },
+            { id: 6, dia: 3000, price: 70000, oldPrice: 100000, hot: true, type: 'dia' },
+            { id: 7, dia: "Weekly Pass", price: 3500, hot: true, type: 'pass' }
+        ];
+
+        window.selectedMethod = 'Wave';
+
+        const initAuth = async () => {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+        initAuth();
+
+        window.selectPackage = (id) => {
+            const pkg = packages.find(p => p.id === id);
+            window.selectedPkg = pkg;
+            document.getElementById('summaryText').innerText = `${pkg.dia} 💎 - ${pkg.price.toLocaleString()} Ks`;
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.goBack = () => {
+            document.getElementById('page1').classList.remove('hidden');
+            document.getElementById('page2').classList.add('hidden');
+        };
+
+        window.submitOrder = async () => {
+            const gid = document.getElementById('gameId').value;
+            const sid = document.getElementById('serverId').value;
+            const name = document.getElementById('senderName').value;
+            const trans = document.getElementById('lastFive').value;
+
+            if (!gid || !sid || !name || !trans) {
+                showToast("⚠️ အချက်အလက်များ ပြည့်စုံစွာဖြည့်ပါ");
+                return;
+            }
+
+            try {
+                const orderId = `STORM-${Date.now()}`;
+                const orderRef = doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId);
+                await setDoc(orderRef, {
+                    orderId, gameId: gid, serverId: sid, item: window.selectedPkg.dia,
+                    price: window.selectedPkg.price, method: window.selectedMethod, 
+                    sender: name, transId: trans, status: 'pending', createdAt: serverTimestamp()
+                });
+                
+                showToast("⚡ အချက်လက်စစ်ဆေးနေပါသည်။ မှန်ကန်ပါက ၃မိနစ်မှ - ၅မိနစ်အတွင်း လူကြီးမင်းရဲ့ MLBB အကောင့်ထဲကို စိန်များရောက်ရှိမည်ဖြစ်ပါသည်။", 6000);
+                setTimeout(goBack, 6500);
+            } catch (err) { 
+                showToast("❌ တစ်ခုခုမှားယွင်းနေပါသည်။"); 
+            }
+        };
+
+        const grid = document.getElementById('packageGrid');
+        packages.forEach(pkg => {
+            const div = document.createElement('div');
+            div.onclick = () => selectPackage(pkg.id);
+            div.className = `diamond-card p-6 cursor-pointer relative group border border-white/5`;
+            
+            const weeklyPassImg = "https://cdn.qukasoft.com/f/990724/cG96YWFtNG0vcUp3ZUdGckg4OG5icmdQYmNFPQ/p/mlbb-weekly-olmos-pass-uz-74928134-sw320sh160.png";
+            const normalDiaImg = "https://wpmisc.com/wp-content/uploads/2025/07/diamond-karung-fcfb-original.png";
+
+            div.innerHTML = `
+                ${pkg.hot ? `<span class="absolute top-0 right-0 bg-red-600 text-[10px] font-black px-4 py-1 rounded-tr-2xl rounded-bl-2xl shadow-lg z-10 animate-pulse">HOT</span>` : ''}
+                <div class="flex flex-col items-center">
+                    <img src="${pkg.type === 'pass' ? weeklyPassImg : normalDiaImg}" class="w-24 h-24 mb-3 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-transform group-hover:scale-110">
+                    <p class="text-white font-black text-2xl text-stroke italic">${pkg.dia.toLocaleString()}</p>
+                    <p class="text-[10px] text-blue-400 font-black uppercase tracking-widest">${pkg.type === 'pass' ? 'Weekly Pass' : 'Diamonds'}</p>
+                </div>
+                <div class="mt-6">
+                    ${pkg.oldPrice ? `<p class="text-xs strike-red text-slate-500 font-bold text-center mb-1">${pkg.oldPrice.toLocaleString()} Ks</p>` : ''}
+                    <div class="w-full py-3 rounded-xl bg-blue-600 group-hover:bg-blue-500 text-center font-black text-sm transition-colors shadow-lg">
+                        ${pkg.price.toLocaleString()} Ks
+                    </div>
+                </div>
+            `;
+            grid.appendChild(div);
+        });
+
+        function showToast(msg, duration = 3000) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.classList.remove('opacity-0', 'translate-y-10');
+            t.classList.add('opacity-1', 'translate-y-0');
+            setTimeout(() => {
+                t.classList.add('opacity-0', 'translate-y-10');
+                t.classList.remove('opacity-1', 'translate-y-0');
+            }, duration);
+        }
+    </script>
+</body>
+</html>
